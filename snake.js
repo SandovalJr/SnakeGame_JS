@@ -69,7 +69,7 @@ function Snake() {
 
   // para mostrar y dibujar un rectangulo
   this.show = function () {
-    fill(255);
+    fill(41,254,10);
     for (var i = 0; i < this.tail.length; i++) {
       // aqui se van a estar trasladando los lugares del array
       rect(this.tail[i].x, this.tail[i].y, scl, scl);
