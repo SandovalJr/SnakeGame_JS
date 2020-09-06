@@ -12,6 +12,20 @@ function Snake() {
     this.yspeed = y;
   };
 
+  // esta funcion recibe una posicion
+  // la cual nos dice donde esta la comida
+  this.eat = function (pos) {
+    var d = dist(this.x, this.y, pos.x, pos.y);
+    // aqui vemos si la serpiente alcanzo la comida
+    // si la alcanso es verdadero
+    // si no la alcanzo es falso
+    if (d < 1) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   // para estar actualizando los valores
   this.update = function () {
     this.x = this.x + this.xspeed * scl;
