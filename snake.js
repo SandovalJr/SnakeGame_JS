@@ -4,6 +4,9 @@ function Snake() {
   this.y = 0;
   this.xspeed = 1;
   this.yspeed = 0;
+  this.total = 0;
+  //   cola
+  this.tail = [];
 
   //   le pasamos valores x , y para darle direccion al objeto
   // en este caso el objeto es la serpiente
@@ -20,6 +23,7 @@ function Snake() {
     // si la alcanso es verdadero
     // si no la alcanzo es falso
     if (d < 1) {
+      this.total++;
       return true;
     } else {
       return false;
@@ -28,6 +32,14 @@ function Snake() {
 
   // para estar actualizando los valores
   this.update = function () {
+    if (this.total === this.tail.length) {
+      for (var i = 0; i < this.tail.length - 1; i++) {
+        // aqui se van a estar trasladando los lugares del array
+        this.tail[i] = this.tail[i + 1];
+      }
+    }
+    this.tail[this.total - 1] = createVector(this.x, this.y);
+
     this.x = this.x + this.xspeed * scl;
     this.y = this.y + this.yspeed * scl;
 
@@ -41,8 +53,11 @@ function Snake() {
 
   // para mostrar y dibujar un rectangulo
   this.show = function () {
-    //   pintamos el rectangulo blanco
     fill(255);
+    for (var i = 0; i < this.tail.length ; i++) {
+        // aqui se van a estar trasladando los lugares del array
+        rect(this.tail[i].x, this.tail[i].y, scl, scl);
+    }
     //   hacemos el rectangulo de 10x10
     rect(this.x, this.y, scl, scl);
   };
