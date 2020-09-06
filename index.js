@@ -1,3 +1,6 @@
+// SandovalJr
+
+
 // variable de la serpiete
 var s;
 // creamos una variable que sera la escala

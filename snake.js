@@ -1,3 +1,5 @@
+// SandovalJr
+
 // creamos el constructor
 function Snake() {
   this.x = 0;
