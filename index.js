@@ -1,5 +1,7 @@
 // variable de la serpiete
 var s;
+// creamos una variable que sera la escala
+var scl = 20;
 
 function setup() {
   createCanvas(600, 600);
@@ -24,4 +26,3 @@ function keyPressed() {
     s.dir(-1, 0);
   }
 }
-
