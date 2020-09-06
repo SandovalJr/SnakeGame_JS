@@ -30,6 +30,20 @@ function Snake() {
     }
   };
 
+  this.death = function () {
+    for (var i = 0; i < this.tail.length; i++) {
+      // posicion
+      var pos = this.tail[i];
+      //   checamos si alcasamos la comida
+      var d = dist(this.x, this.y, pos.x, pos.y);
+      if (d < 1) {
+        console.log("iniciamos otra vez");
+        this.total = 0;
+        this.tail = [];
+      }
+    }
+  };
+
   // para estar actualizando los valores
   this.update = function () {
     if (this.total === this.tail.length) {
@@ -54,9 +68,9 @@ function Snake() {
   // para mostrar y dibujar un rectangulo
   this.show = function () {
     fill(255);
-    for (var i = 0; i < this.tail.length ; i++) {
-        // aqui se van a estar trasladando los lugares del array
-        rect(this.tail[i].x, this.tail[i].y, scl, scl);
+    for (var i = 0; i < this.tail.length; i++) {
+      // aqui se van a estar trasladando los lugares del array
+      rect(this.tail[i].x, this.tail[i].y, scl, scl);
     }
     //   hacemos el rectangulo de 10x10
     rect(this.x, this.y, scl, scl);
